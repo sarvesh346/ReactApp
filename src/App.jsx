@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -13,12 +13,17 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import NameTemplate from "./nameTemplate";
 const App = () => {
-  const [nationality, setNationality] = React.useState("");
-  const [fName, setfName] = React.useState("");
-  const [mName, setmName] = React.useState("");
-  const [lName, setlName] = React.useState("");
-  const [aName, setaName] = React.useState("");
-  const [bName, setbName] = React.useState("");
+  const [nationality, setNationality] = useState("");
+  const [fName, setfName] = useState("");
+  const [mName, setmName] = useState("");
+  const [lName, setlName] = useState("");
+  const [aName, setaName] = useState("");
+  const [bName, setbName] = useState("");
+
+  useEffect(() => {
+    console.log("Sarvesh");
+  }, []);
+
   return (
     <div className="outerBox">
       <div className="container">
