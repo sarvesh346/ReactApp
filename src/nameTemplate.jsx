@@ -12,6 +12,7 @@ const NameTemplate = (props) => {
       }}
       noValidate
       autoComplete="off"
+      className="nationalityBlock"
     >
       <TextField
         id="outlined-basic"

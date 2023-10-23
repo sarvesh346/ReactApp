@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import LoginIcon from "@mui/icons-material/Login";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import NameAdress from "./nameAdress";
 import NameTemplate from "./nameTemplate";
 const App = () => {
   const [nationality, setNationality] = useState("");
@@ -19,6 +16,7 @@ const App = () => {
   const [lName, setlName] = useState("");
   const [aName, setaName] = useState("");
   const [bName, setbName] = useState("");
+  const [gender, setGender] = useState("female");
 
   useEffect(() => {
     console.log("Sarvesh");
@@ -36,27 +34,15 @@ const App = () => {
           lName={lName}
           setlName={setlName}
         />
+        <NameAdress
+          nationality={nationality}
+          aName={aName}
+          bName={bName}
+          setNationality={setNationality}
+          setaName={setaName}
+          setbName={setbName}
+        />
         <Box>
-          <Box>
-            <TextField
-              id="outlined-basic"
-              type="number"
-              label="Age"
-              value={aName}
-              onChange={(e) => setaName(e.target.value)}
-              variant="outlined"
-            />
-          </Box>
-          <Box className="a1">
-            <TextField
-              id="outlined-multiline-static"
-              label="Address"
-              value={bName}
-              onChange={(e) => setbName(e.target.value)}
-              multiline
-              rows={4}
-            />
-          </Box>
           <Box>
             <FormControl>
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
@@ -64,6 +50,7 @@ const App = () => {
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
                 name="radio-buttons-group"
+                onChange={(e)=>setGender(e.target.value)}
               >
                 <FormControlLabel
                   value="female"
@@ -83,22 +70,6 @@ const App = () => {
               </RadioGroup>
             </FormControl>
           </Box>
-          <Box>
-            <FormControl style={{ width: "200px" }}>
-              <InputLabel id="demo-simple-select-label">Nationality</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={nationality}
-                label="Nationality"
-                onChange={(e) => setNationality(e.target.value)}
-              >
-                <MenuItem value={"India"}>India</MenuItem>
-                <MenuItem value={"Pakistan"}>Pak</MenuItem>
-                <MenuItem value={"Srilanka"}>Srilanka</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
           <LoginIcon
             onClick={() => {
               console.log("First Name", fName);
@@ -107,6 +78,7 @@ const App = () => {
               console.log("Nationality", nationality);
               console.log("Age", aName);
               console.log("Address", bName);
+              console.log("Gender", gender);
             }}
           />
         </Box>
